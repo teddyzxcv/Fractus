@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fractus", "Fractus\Fractus.csproj", "{B07296A5-3E0E-4CCE-B55D-CA38D1D1B4F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B07296A5-3E0E-4CCE-B55D-CA38D1D1B4F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B07296A5-3E0E-4CCE-B55D-CA38D1D1B4F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B07296A5-3E0E-4CCE-B55D-CA38D1D1B4F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B07296A5-3E0E-4CCE-B55D-CA38D1D1B4F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {310E14E4-922E-4D08-93A1-528F357ADC97}
+	EndGlobalSection
+EndGlobal
