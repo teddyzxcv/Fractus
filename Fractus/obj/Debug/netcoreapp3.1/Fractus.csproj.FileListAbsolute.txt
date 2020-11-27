@@ -1,0 +1,15 @@
+C:\Users\teddyzxcv\source\repos\Fractus\Fractus\bin\Debug\netcoreapp3.1\Fractus.exe
+C:\Users\teddyzxcv\source\repos\Fractus\Fractus\bin\Debug\netcoreapp3.1\Fractus.deps.json
+C:\Users\teddyzxcv\source\repos\Fractus\Fractus\bin\Debug\netcoreapp3.1\Fractus.runtimeconfig.json
+C:\Users\teddyzxcv\source\repos\Fractus\Fractus\bin\Debug\netcoreapp3.1\Fractus.runtimeconfig.dev.json
+C:\Users\teddyzxcv\source\repos\Fractus\Fractus\bin\Debug\netcoreapp3.1\Fractus.dll
+C:\Users\teddyzxcv\source\repos\Fractus\Fractus\bin\Debug\netcoreapp3.1\Fractus.pdb
+C:\Users\teddyzxcv\source\repos\Fractus\Fractus\obj\Debug\netcoreapp3.1\Fractus.csprojAssemblyReference.cache
+C:\Users\teddyzxcv\source\repos\Fractus\Fractus\obj\Debug\netcoreapp3.1\Fractus.Form1.resources
+C:\Users\teddyzxcv\source\repos\Fractus\Fractus\obj\Debug\netcoreapp3.1\Fractus.csproj.GenerateResource.cache
+C:\Users\teddyzxcv\source\repos\Fractus\Fractus\obj\Debug\netcoreapp3.1\Fractus.AssemblyInfoInputs.cache
+C:\Users\teddyzxcv\source\repos\Fractus\Fractus\obj\Debug\netcoreapp3.1\Fractus.AssemblyInfo.cs
+C:\Users\teddyzxcv\source\repos\Fractus\Fractus\obj\Debug\netcoreapp3.1\Fractus.csproj.CoreCompileInputs.cache
+C:\Users\teddyzxcv\source\repos\Fractus\Fractus\obj\Debug\netcoreapp3.1\Fractus.dll
+C:\Users\teddyzxcv\source\repos\Fractus\Fractus\obj\Debug\netcoreapp3.1\Fractus.pdb
+C:\Users\teddyzxcv\source\repos\Fractus\Fractus\obj\Debug\netcoreapp3.1\Fractus.genruntimeconfig.cache
