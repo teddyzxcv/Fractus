@@ -25,8 +25,17 @@ namespace Fractus
                 ColorList.Add(Color.FromArgb(rAdverage, gAdverage, bAdverage));
             }
         }
+        public static int PythagorasAngle1
+        {
+            get; set;
+        }
+        public static int PythagorasAngle2 { get; set; }
+        public static int FractionBetweenRecursion { get; set; }
 
-        public static void PythagorasTreeRecursion(Point startPoint, int LevelRecursion, Bitmap bm, int Angle, int Distance, int ConstAngle)
+
+
+
+        public static void PythagorasTreeRecursion(Point startPoint, int LevelRecursion, Bitmap bm, int Angle, double Distance)
         {
             if (LevelRecursion > 0)
             {
@@ -36,7 +45,6 @@ namespace Fractus
                 afterPoint.X = startPoint.X + (int)(Math.Sin(Angle * (Math.PI / 180)) * Distance);
                 afterPoint.Y = startPoint.Y + (int)(Math.Cos(Angle * (Math.PI / 180)) * Distance);
 
-
                 using (Graphics gr = Graphics.FromImage(bm))
                 {
                     using (Pen thick_pen = new Pen(ColorList[LevelRecursion - 1], 1))
@@ -44,11 +52,61 @@ namespace Fractus
                         gr.DrawLine(thick_pen, startPoint, afterPoint);
                     }
                 }
-                PythagorasTreeRecursion(afterPoint, LevelRecursion - 1, bm, Angle + ConstAngle, Distance / 2, ConstAngle);
-                PythagorasTreeRecursion(afterPoint, LevelRecursion - 1, bm, Angle - ConstAngle, Distance / 2, ConstAngle);
+                PythagorasTreeRecursion(afterPoint, LevelRecursion - 1, bm, Angle + PythagorasAngle1, Distance / ((double)(FractionBetweenRecursion) / 100));
+                PythagorasTreeRecursion(afterPoint, LevelRecursion - 1, bm, Angle - PythagorasAngle2, Distance / ((double)(FractionBetweenRecursion) / 100));
             }
             else
                 return;
+        }
+
+
+        public static void KochSnowflakwRecursion(Color startColor, int LevelRecursion, Point startPoint, int Distance, int Angle, Bitmap bm)
+        {
+            Point afterPoint = new Point();
+
+            if (LevelRecursion == 0)
+            {
+                using (Graphics gr = Graphics.FromImage(bm))
+                {
+                    using (Pen thick_pen = new Pen(startColor, 1))
+                    {
+                        gr.DrawLine(thick_pen, startPoint, afterPoint);
+                    }
+                }
+            }
+            else if (LevelRecursion == 1)
+            {
+                int CurrentDistance = (afterPoint.Y - startPoint.Y) / 3;
+                int CurrentAngle = Angle;
+
+                using (Graphics gr = Graphics.FromImage(bm))
+                {
+                    using (Pen thick_pen = new Pen(ColorList[LevelRecursion - 1], 1))
+                    {
+                        afterPoint.Y = startPoint.Y + (int)(Math.Sin(CurrentAngle * (Math.PI / 180)) * CurrentDistance);
+                        afterPoint.X = startPoint.X + (int)(Math.Cos(CurrentAngle * (Math.PI / 180)) * CurrentDistance);
+                        gr.DrawLine(thick_pen, startPoint, afterPoint);
+                        CurrentAngle += 60;
+                        startPoint = afterPoint;
+                        afterPoint.Y = startPoint.Y + (int)(Math.Sin(CurrentAngle * (Math.PI / 180)) * CurrentDistance);
+                        afterPoint.X = startPoint.X + (int)(Math.Cos(CurrentAngle * (Math.PI / 180)) * CurrentDistance);
+                        gr.DrawLine(thick_pen, startPoint, afterPoint);
+                        CurrentAngle -= 120;
+                        startPoint = afterPoint;
+                        afterPoint.Y = startPoint.Y + (int)(Math.Sin(CurrentAngle * (Math.PI / 180)) * CurrentDistance);
+                        afterPoint.X = startPoint.X + (int)(Math.Cos(CurrentAngle * (Math.PI / 180)) * CurrentDistance);
+                        gr.DrawLine(thick_pen, startPoint, afterPoint);
+                        CurrentAngle += 60;
+                        startPoint = afterPoint;
+                        afterPoint.Y = startPoint.Y + (int)(Math.Sin(CurrentAngle * (Math.PI / 180)) * CurrentDistance);
+                        afterPoint.X = startPoint.X + (int)(Math.Cos(CurrentAngle * (Math.PI / 180)) * CurrentDistance);
+                        gr.DrawLine(thick_pen, startPoint, afterPoint);
+                    }
+                }
+            }
+
+
+
         }
     }
 

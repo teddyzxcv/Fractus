@@ -47,6 +47,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.label4 = new System.Windows.Forms.Label();
+            this.trackBar3 = new System.Windows.Forms.TrackBar();
+            this.trackBar4 = new System.Windows.Forms.TrackBar();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.ChooseFractus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StepOfRecursion)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -54,6 +61,8 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).BeginInit();
             this.SuspendLayout();
             // 
             // ChooseFractus
@@ -113,6 +122,7 @@
             this.KochSnowflake.TabStop = true;
             this.KochSnowflake.Text = "Koch snowflake";
             this.KochSnowflake.UseVisualStyleBackColor = true;
+            this.KochSnowflake.CheckedChanged += new System.EventHandler(this.KochSnowflake_CheckedChanged);
             // 
             // PythagorasTree
             // 
@@ -129,6 +139,11 @@
             // StepOfRecursion
             // 
             this.StepOfRecursion.Location = new System.Drawing.Point(21, 540);
+            this.StepOfRecursion.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             this.StepOfRecursion.Name = "StepOfRecursion";
             this.StepOfRecursion.Size = new System.Drawing.Size(240, 38);
             this.StepOfRecursion.TabIndex = 5;
@@ -179,12 +194,10 @@
             // trackBar1
             // 
             this.trackBar1.Location = new System.Drawing.Point(15, 752);
-            this.trackBar1.Maximum = 100;
-            this.trackBar1.Minimum = 30;
+            this.trackBar1.Maximum = 180;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(208, 90);
             this.trackBar1.TabIndex = 9;
-            this.trackBar1.Value = 30;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // label2
@@ -216,7 +229,7 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(308, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(730, 811);
+            this.panel1.Size = new System.Drawing.Size(730, 990);
             this.panel1.TabIndex = 12;
             // 
             // pictureBox1
@@ -247,10 +260,83 @@
             this.label4.Text = "Zoom X1";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
+            // trackBar3
+            // 
+            this.trackBar3.Location = new System.Drawing.Point(15, 820);
+            this.trackBar3.Maximum = 180;
+            this.trackBar3.Name = "trackBar3";
+            this.trackBar3.Size = new System.Drawing.Size(208, 90);
+            this.trackBar3.TabIndex = 15;
+            this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
+            // 
+            // trackBar4
+            // 
+            this.trackBar4.Location = new System.Drawing.Point(15, 916);
+            this.trackBar4.Maximum = 600;
+            this.trackBar4.Minimum = 125;
+            this.trackBar4.Name = "trackBar4";
+            this.trackBar4.Size = new System.Drawing.Size(208, 90);
+            this.trackBar4.TabIndex = 16;
+            this.trackBar4.Value = 125;
+            this.trackBar4.Scroll += new System.EventHandler(this.trackBar4_Scroll);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(236, 916);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 31);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "1/1.5";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(246, 830);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 31);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "0°";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(-1, 752);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(28, 31);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "1";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(-1, 820);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(28, 31);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "2";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft YaHei UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(15, 885);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(262, 25);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Fraction between recursion";
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1050, 835);
+            this.ClientSize = new System.Drawing.Size(1050, 1014);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.trackBar4);
+            this.Controls.Add(this.trackBar3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -263,6 +349,7 @@
             this.Controls.Add(this.ChooseFractus);
             this.Name = "Form1";
             this.Text = "Fractus";
+            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.ChooseFractus.ResumeLayout(false);
             this.ChooseFractus.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StepOfRecursion)).EndInit();
@@ -271,6 +358,8 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,6 +385,13 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TrackBar trackBar2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TrackBar trackBar3;
+        private System.Windows.Forms.TrackBar trackBar4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label9;
     }
 }
 
