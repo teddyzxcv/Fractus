@@ -89,6 +89,7 @@
             this.CantorSet.TabStop = true;
             this.CantorSet.Text = "Cantor set";
             this.CantorSet.UseVisualStyleBackColor = true;
+            this.CantorSet.CheckedChanged += new System.EventHandler(this.CantorSet_CheckedChanged);
             // 
             // SierpinskiTriangle
             // 
@@ -100,6 +101,7 @@
             this.SierpinskiTriangle.TabStop = true;
             this.SierpinskiTriangle.Text = "Sierpinski triangle";
             this.SierpinskiTriangle.UseVisualStyleBackColor = true;
+            this.SierpinskiTriangle.CheckedChanged += new System.EventHandler(this.SierpinskiTriangle_CheckedChanged);
             // 
             // SierpinskiCarpet
             // 
@@ -111,6 +113,7 @@
             this.SierpinskiCarpet.TabStop = true;
             this.SierpinskiCarpet.Text = "Sierpinski carpet";
             this.SierpinskiCarpet.UseVisualStyleBackColor = true;
+            this.SierpinskiCarpet.CheckedChanged += new System.EventHandler(this.SierpinskiCarpet_CheckedChanged);
             // 
             // KochSnowflake
             // 
