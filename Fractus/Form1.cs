@@ -50,6 +50,8 @@ namespace Fractus
         private void PythagorasTree_CheckedChanged(object sender, EventArgs e)
         {
             //pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            trackBar2.Value = 1;
+
             DrawPythagorasTree();
             if (PythagorasTree.Checked)
             {
@@ -137,7 +139,7 @@ namespace Fractus
             FractusRecursion.FractionBetweenRecursion = trackBar4.Value;
             Bitmap bm = new Bitmap(panel1.Size.Width * (int)zoom, panel1.Size.Height * (int)zoom);
             Point Center = new Point(bm.Size.Width / 2, 100);
-            FractusRecursion.PythagorasTreeRecursion(Center, (int)StepOfRecursion.Value, bm, 0, 150 * zoom);
+            FractusRecursion.PythagorasTreeRecursion(Center, (int)StepOfRecursion.Value, bm, 0, 300 * zoom);
             pictureBox1.BackColor = Color.Black;
             pictureBox1.Image = bm;
             pictureBox1.Size = bm.Size;
@@ -147,8 +149,8 @@ namespace Fractus
             double zoom = trackBar2.Value;
 
             Bitmap bm = new Bitmap(panel1.Size.Width * (int)zoom, panel1.Size.Height * (int)zoom);
-            Point Center = new Point(bm.Size.Width / 2 + 100, bm.Size.Height / 2);
-            FractusRecursion.KochSnowflakwRecursion(startColor.BackColor, (int)StepOfRecursion.Value, Center, out Point aPoint, 500 * zoom, 180, bm);
+            Point Center = new Point(bm.Size.Width / 2 + 500, bm.Size.Height / 2);
+            FractusRecursion.KochSnowflakwRecursion(startColor.BackColor, (int)StepOfRecursion.Value, Center, out Point aPoint, 1000 * zoom, 180, bm);
             pictureBox1.BackColor = Color.Black;
             pictureBox1.Image = bm;
             pictureBox1.Size = bm.Size;
@@ -202,7 +204,7 @@ namespace Fractus
         {
             double distance = (double)numericUpDown1.Value;
             double zoom = trackBar2.Value;
-            double size = 500 * zoom;
+            double size = 1000 * zoom;
             Bitmap bm = new Bitmap(panel1.Size.Width * (int)zoom, panel1.Size.Height * (int)zoom);
             Point Center = new Point(bm.Size.Width / 2, bm.Size.Height / 2);
             FractusRecursion.CantorSetRecursion(Center, (int)distance, size, bm, (int)StepOfRecursion.Value);
@@ -257,30 +259,40 @@ namespace Fractus
 
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
-            StepOfRecursion.Value = 0;
+            trackBar2.Value = 1;
+
+
             DrawFractus();
         }
 
         private void KochSnowflake_CheckedChanged(object sender, EventArgs e)
         {
+            trackBar2.Value = 1;
+
             StepOfRecursion.Value = 0;
             DrawFractus();
         }
 
         private void SierpinskiCarpet_CheckedChanged(object sender, EventArgs e)
         {
+            trackBar2.Value = 1;
+
             StepOfRecursion.Value = 0;
             DrawFractus();
         }
 
         private void SierpinskiTriangle_CheckedChanged(object sender, EventArgs e)
         {
+            trackBar2.Value = 1;
+
             StepOfRecursion.Value = 0;
             DrawFractus();
         }
 
         private void CantorSet_CheckedChanged(object sender, EventArgs e)
         {
+            trackBar2.Value = 1;
+
             if (CantorSet.Checked)
             {
                 numericUpDown1.Visible = true;

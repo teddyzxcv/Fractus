@@ -178,12 +178,13 @@
             // 
             // endColor
             // 
+            this.endColor.BackColor = System.Drawing.Color.Red;
             this.endColor.Location = new System.Drawing.Point(124, 122);
             this.endColor.Name = "endColor";
             this.endColor.Size = new System.Drawing.Size(148, 46);
             this.endColor.TabIndex = 2;
             this.endColor.Text = "end color";
-            this.endColor.UseVisualStyleBackColor = true;
+            this.endColor.UseVisualStyleBackColor = false;
             this.endColor.Click += new System.EventHandler(this.button3_Click);
             // 
             // startColor
@@ -204,6 +205,7 @@
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(208, 90);
             this.trackBar1.TabIndex = 9;
+            this.trackBar1.Value = 30;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // label2
@@ -273,6 +275,7 @@
             this.trackBar3.Name = "trackBar3";
             this.trackBar3.Size = new System.Drawing.Size(208, 90);
             this.trackBar3.TabIndex = 15;
+            this.trackBar3.Value = 30;
             this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
             // 
             // trackBar4
@@ -348,6 +351,11 @@
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(240, 38);
             this.numericUpDown1.TabIndex = 25;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // Form1
