@@ -63,6 +63,8 @@ namespace Fractus
                 label7.Visible = true;
                 label8.Visible = true;
                 label9.Visible = true;
+                numericUpDown1.Visible = false;
+                label10.Visible = false;
 
             }
             else
@@ -77,6 +79,9 @@ namespace Fractus
                 label7.Visible = false;
                 label8.Visible = false;
                 label9.Visible = false;
+                numericUpDown1.Visible = false;
+                label10.Visible = false;
+
 
             }
             label3.Refresh();
@@ -170,8 +175,9 @@ namespace Fractus
         }
         public void DrawSierpinskiTriangle()
         {
-            double size = 500;
+
             double zoom = trackBar2.Value;
+            double size = 500 * zoom;
             Bitmap bm = new Bitmap(panel1.Size.Width * (int)zoom, panel1.Size.Height * (int)zoom);
             Point Center = new Point(bm.Size.Width / 2, bm.Size.Height / 2);
             using (Graphics gr = Graphics.FromImage(bm))
@@ -194,12 +200,12 @@ namespace Fractus
         }
         public void DrawCantorSet()
         {
-            double size = 500;
-            double distance = trackBar3.Value;
+            double distance = (double)numericUpDown1.Value;
             double zoom = trackBar2.Value;
+            double size = 500 * zoom;
             Bitmap bm = new Bitmap(panel1.Size.Width * (int)zoom, panel1.Size.Height * (int)zoom);
             Point Center = new Point(bm.Size.Width / 2, bm.Size.Height / 2);
-            FractusRecursion.CantorSetRecursion((int)distance, size, bm, (int)StepOfRecursion.Value);
+            FractusRecursion.CantorSetRecursion(Center, (int)distance, size, bm, (int)StepOfRecursion.Value);
             pictureBox1.BackColor = Color.Black;
             pictureBox1.Image = bm;
             pictureBox1.Size = bm.Size;
@@ -275,7 +281,28 @@ namespace Fractus
 
         private void CantorSet_CheckedChanged(object sender, EventArgs e)
         {
+            if (CantorSet.Checked)
+            {
+                numericUpDown1.Visible = true;
+                label10.Visible = true;
+            }
+            else
+            {
+                numericUpDown1.Visible = false;
+                label10.Visible = false;
+            }
             StepOfRecursion.Value = 0;
+            DrawFractus();
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
             DrawFractus();
         }
     }

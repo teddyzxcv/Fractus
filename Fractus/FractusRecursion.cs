@@ -159,18 +159,21 @@ namespace Fractus
 
             }
         }
-        public static void CantorSetRecursion(int Distance, double size, Bitmap bm, int LevelRecursion)
+        public static void CantorSetRecursion(Point CurrentPoint, int Distance, double size, Bitmap bm, int LevelRecursion)
         {
             if (LevelRecursion > 0)
             {
 
                 using (Graphics gr = Graphics.FromImage(bm))
                 {
-                    using (Brush br = new SolidBrush(ColorList[LevelRecursion + 1]))
+                    using (Brush br = new SolidBrush(ColorList[LevelRecursion]))
                     {
-
+                        gr.DrawLine(new Pen(br), Point.Add(CurrentPoint, new Size((int)(size / 2), 0)), Point.Subtract(CurrentPoint, new Size((int)(size / 2), 0)));
                     }
                 }
+                CantorSetRecursion(Point.Add(CurrentPoint, new Size((int)(size / 3), Distance)), Distance, size / 3, bm, LevelRecursion - 1);
+                CantorSetRecursion(Point.Add(CurrentPoint, new Size(-(int)(size / 3), Distance)), Distance, size / 3, bm, LevelRecursion - 1);
+
 
 
             }
