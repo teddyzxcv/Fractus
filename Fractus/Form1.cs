@@ -142,8 +142,8 @@ namespace Fractus
             double zoom = trackBar2.Value;
 
             Bitmap bm = new Bitmap(panel1.Size.Width * (int)zoom, panel1.Size.Height * (int)zoom);
-            Point Center = new Point(bm.Size.Width / 2 + 200, bm.Size.Height / 2);
-            FractusRecursion.KochSnowflakwRecursion(startColor.BackColor, (int)StepOfRecursion.Value, Center, 100, 90, bm);
+            Point Center = new Point(bm.Size.Width / 2 + 100, bm.Size.Height / 2);
+            FractusRecursion.KochSnowflakwRecursion(startColor.BackColor, (int)StepOfRecursion.Value, Center, out Point aPoint, 500 * zoom, 180, bm);
             pictureBox1.BackColor = Color.Black;
             pictureBox1.Image = bm;
             pictureBox1.Size = bm.Size;

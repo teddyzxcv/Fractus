@@ -60,9 +60,9 @@ namespace Fractus
         }
 
 
-        public static void KochSnowflakwRecursion(Color startColor, int LevelRecursion, Point startPoint, int Distance, int Angle, Bitmap bm)
+        public static void KochSnowflakwRecursion(Color startColor, int LevelRecursion, Point startPoint, out Point afterPoint, double Distance, int Angle, Bitmap bm)
         {
-            Point afterPoint = new Point();
+            afterPoint = new Point();
 
             if (LevelRecursion == 0)
             {
@@ -70,11 +70,13 @@ namespace Fractus
                 {
                     using (Pen thick_pen = new Pen(startColor, 1))
                     {
+                        afterPoint.Y = startPoint.Y + (int)(Math.Sin(Angle * (Math.PI / 180)) * Distance);
+                        afterPoint.X = startPoint.X + (int)(Math.Cos(Angle * (Math.PI / 180)) * Distance);
                         gr.DrawLine(thick_pen, startPoint, afterPoint);
                     }
                 }
             }
-            else if (LevelRecursion == 1)
+            else
             {
                 int CurrentDistance = (afterPoint.Y - startPoint.Y) / 3;
                 int CurrentAngle = Angle;
@@ -83,24 +85,18 @@ namespace Fractus
                 {
                     using (Pen thick_pen = new Pen(ColorList[LevelRecursion - 1], 1))
                     {
-                        afterPoint.Y = startPoint.Y + (int)(Math.Sin(CurrentAngle * (Math.PI / 180)) * CurrentDistance);
-                        afterPoint.X = startPoint.X + (int)(Math.Cos(CurrentAngle * (Math.PI / 180)) * CurrentDistance);
-                        gr.DrawLine(thick_pen, startPoint, afterPoint);
+                        Point aPoint;
+                        KochSnowflakwRecursion(startColor, LevelRecursion - 1, startPoint, out aPoint, Distance / 3, CurrentAngle, bm);
                         CurrentAngle += 60;
-                        startPoint = afterPoint;
-                        afterPoint.Y = startPoint.Y + (int)(Math.Sin(CurrentAngle * (Math.PI / 180)) * CurrentDistance);
-                        afterPoint.X = startPoint.X + (int)(Math.Cos(CurrentAngle * (Math.PI / 180)) * CurrentDistance);
-                        gr.DrawLine(thick_pen, startPoint, afterPoint);
+                        startPoint = aPoint;
+                        KochSnowflakwRecursion(startColor, LevelRecursion - 1, startPoint, out aPoint, Distance / 3, CurrentAngle, bm);
                         CurrentAngle -= 120;
-                        startPoint = afterPoint;
-                        afterPoint.Y = startPoint.Y + (int)(Math.Sin(CurrentAngle * (Math.PI / 180)) * CurrentDistance);
-                        afterPoint.X = startPoint.X + (int)(Math.Cos(CurrentAngle * (Math.PI / 180)) * CurrentDistance);
-                        gr.DrawLine(thick_pen, startPoint, afterPoint);
+                        startPoint = aPoint;
+                        KochSnowflakwRecursion(startColor, LevelRecursion - 1, startPoint, out aPoint, Distance / 3, CurrentAngle, bm);
                         CurrentAngle += 60;
-                        startPoint = afterPoint;
-                        afterPoint.Y = startPoint.Y + (int)(Math.Sin(CurrentAngle * (Math.PI / 180)) * CurrentDistance);
-                        afterPoint.X = startPoint.X + (int)(Math.Cos(CurrentAngle * (Math.PI / 180)) * CurrentDistance);
-                        gr.DrawLine(thick_pen, startPoint, afterPoint);
+                        startPoint = aPoint;
+                        KochSnowflakwRecursion(startColor, LevelRecursion - 1, startPoint, out aPoint, Distance / 3, CurrentAngle, bm);
+                        afterPoint = aPoint;
                     }
                 }
             }
