@@ -151,7 +151,11 @@ namespace Fractus
 
         private void StepOfRecursion_ValueChanged(object sender, EventArgs e)
         {
-            DrawFractus();
+            if ((KochSnowflake.Checked && (StepOfRecursion.Value <= 5 || trackBar2.Value > 3)) || !KochSnowflake.Checked)
+                DrawFractus();
+            else
+                StepOfRecursion.Value = 5;
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -196,6 +200,7 @@ namespace Fractus
 
         private void KochSnowflake_CheckedChanged(object sender, EventArgs e)
         {
+            StepOfRecursion.Value = 0;
             DrawFractus();
         }
     }

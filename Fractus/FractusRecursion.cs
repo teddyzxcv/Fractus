@@ -70,8 +70,8 @@ namespace Fractus
                 {
                     using (Pen thick_pen = new Pen(startColor, 1))
                     {
-                        afterPoint.Y = startPoint.Y + (int)(Math.Sin(Angle * (Math.PI / 180)) * Distance);
-                        afterPoint.X = startPoint.X + (int)(Math.Cos(Angle * (Math.PI / 180)) * Distance);
+                        afterPoint.Y = startPoint.Y + (int)Math.Round((Math.Sin(Angle * (Math.PI / 180)) * Distance));
+                        afterPoint.X = startPoint.X + (int)Math.Round((Math.Cos(Angle * (Math.PI / 180)) * Distance));
                         gr.DrawLine(thick_pen, startPoint, afterPoint);
                     }
                 }
