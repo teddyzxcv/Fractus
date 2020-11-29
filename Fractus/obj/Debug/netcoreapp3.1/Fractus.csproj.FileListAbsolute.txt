@@ -13,3 +13,4 @@ C:\Users\teddyzxcv\source\repos\Fractus\Fractus\obj\Debug\netcoreapp3.1\Fractus.
 C:\Users\teddyzxcv\source\repos\Fractus\Fractus\obj\Debug\netcoreapp3.1\Fractus.dll
 C:\Users\teddyzxcv\source\repos\Fractus\Fractus\obj\Debug\netcoreapp3.1\Fractus.pdb
 C:\Users\teddyzxcv\source\repos\Fractus\Fractus\obj\Debug\netcoreapp3.1\Fractus.genruntimeconfig.cache
+C:\Users\teddyzxcv\source\repos\Fractus\Fractus\obj\Debug\netcoreapp3.1\Fractus.Form2.resources

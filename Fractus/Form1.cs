@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,15 +15,21 @@ namespace Fractus
 {
     public partial class Form1 : Form
     {
+
+
+
         public Form1()
         {
+
             InitializeComponent();
+            
             Size ScreenSize = Screen.PrimaryScreen.Bounds.Size;
             this.MaximumSize = ScreenSize;
             ScreenSize.Width /= 2;
             ScreenSize.Height /= 2;
             ScreenSize.Height += 400;
             this.MinimumSize = ScreenSize;
+
         }
 
 
@@ -104,7 +111,7 @@ namespace Fractus
 
         private void DrawFractus()
         {
-            FractusRecursion.GenerateColorList(endColor.BackColor, startColor.BackColor, (int)StepOfRecursion.Value);
+            Fractus.GenerateColorList(endColor.BackColor, startColor.BackColor, (int)StepOfRecursion.Value);
             if (PythagorasTree.Checked)
             {
                 DrawPythagorasTree();
@@ -134,83 +141,92 @@ namespace Fractus
         public void DrawPythagorasTree()
         {
             double zoom = trackBar2.Value;
-            FractusRecursion.PythagorasAngle1 = trackBar1.Value;
-            FractusRecursion.PythagorasAngle2 = trackBar3.Value;
-            FractusRecursion.FractionBetweenRecursion = trackBar4.Value;
-            Bitmap bm = new Bitmap(panel1.Size.Width * (int)zoom, panel1.Size.Height * (int)zoom);
-            Point Center = new Point(bm.Size.Width / 2, 100);
-            FractusRecursion.PythagorasTreeRecursion(Center, (int)StepOfRecursion.Value, bm, 0, 300 * zoom);
+            PythagorasTreeR pt = new PythagorasTreeR()
+            {
+
+                PythagorasAngle1 = trackBar1.Value,
+                PythagorasAngle2 = trackBar3.Value,
+                FractionBetweenRecursion = trackBar4.Value,
+                LevelRecursion = (int)StepOfRecursion.Value,
+                bm = new Bitmap(panel1.Size.Width * (int)zoom, panel1.Size.Height * (int)zoom),
+                StartPoint = new Point(panel1.Size.Width * (int)zoom / 2, 100),
+                Size = (int)(300 * zoom)
+            };
+            pt.Paint();
             pictureBox1.BackColor = Color.Black;
-            pictureBox1.Image = bm;
-            pictureBox1.Size = bm.Size;
+            pictureBox1.Image = pt.bm;
+            pictureBox1.Size = pt.bm.Size;
         }
         public void DrawKochSnowflake()
         {
             double zoom = trackBar2.Value;
-
-            Bitmap bm = new Bitmap(panel1.Size.Width * (int)zoom, panel1.Size.Height * (int)zoom);
-            Point Center = new Point(bm.Size.Width / 2 + 500, bm.Size.Height / 2);
-            FractusRecursion.KochSnowflakwRecursion(startColor.BackColor, (int)StepOfRecursion.Value, Center, out Point aPoint, 1000 * zoom, 180, bm);
+            Bitmap bmp = new Bitmap(panel1.Size.Width * (int)zoom, panel1.Size.Height * (int)zoom);
+            KochSnowflakeR kf = new KochSnowflakeR()
+            {
+                LevelRecursion = (int)StepOfRecursion.Value,
+                bm = bmp,
+                StartPoint = new Point(bmp.Size.Width / 2 + 500, bmp.Size.Height / 2 + 200),
+                Size = (int)(1000 * zoom)
+            };
+            kf.Paint();
             pictureBox1.BackColor = Color.Black;
-            pictureBox1.Image = bm;
-            pictureBox1.Size = bm.Size;
+            pictureBox1.Image = kf.bm;
+            pictureBox1.Size = kf.bm.Size;
         }
         public void DrawSierpinskiCarpet()
         {
             double zoom = trackBar2.Value;
-
-            Bitmap bm = new Bitmap(panel1.Size.Width * (int)zoom, panel1.Size.Height * (int)zoom);
-            Point Center = new Point(bm.Size.Width / 2 - 250, bm.Size.Height / 2 - 250);
-            using (Graphics gr = Graphics.FromImage(bm))
+            Bitmap bmp = new Bitmap(panel1.Size.Width * (int)zoom, panel1.Size.Height * (int)zoom);
+            Point Center = new Point(bmp.Size.Width / 2 - 250, bmp.Size.Height / 2 - 250);
+            SiepinskiCarpetR siecar = new SiepinskiCarpetR()
             {
-                using (Brush br = new SolidBrush(startColor.BackColor))
-                {
+                LevelRecursion = (int)StepOfRecursion.Value,
+                bm = bmp,
+                StartPoint = Center,
+                Size = (int)(500 * zoom)
+            };
 
-                    Rectangle rec = new Rectangle(Center, new Size(500 * (int)zoom, 500 * (int)zoom));
-                    gr.FillRectangle(br, rec);
-                }
-            }
-            FractusRecursion.SierpinskiCarpetRecursion(Center, (int)StepOfRecursion.Value - 1, 500 * (int)zoom, bm);
+            siecar.Paint();
             pictureBox1.BackColor = Color.Black;
-            pictureBox1.Image = bm;
-            pictureBox1.Size = bm.Size;
+            pictureBox1.Image = siecar.bm;
+            pictureBox1.Size = siecar.bm.Size;
         }
         public void DrawSierpinskiTriangle()
         {
 
             double zoom = trackBar2.Value;
             double size = 500 * zoom;
-            Bitmap bm = new Bitmap(panel1.Size.Width * (int)zoom, panel1.Size.Height * (int)zoom);
-            Point Center = new Point(bm.Size.Width / 2, bm.Size.Height / 2);
-            using (Graphics gr = Graphics.FromImage(bm))
+            Bitmap bmp = new Bitmap(panel1.Size.Width * (int)zoom, panel1.Size.Height * (int)zoom);
+            Point Center = new Point(bmp.Size.Width / 2, bmp.Size.Height / 2);
+            SiepinskiTriangleR sr = new SiepinskiTriangleR()
             {
-                using (Brush br = new SolidBrush(startColor.BackColor))
-                {
-                    Point[] points = new Point[3];
-                    points[0] = Point.Subtract(Center, new Size(0, (int)(size / (2 * Math.Sin(Math.PI / 3)))));
-                    points[1] = Point.Subtract(Center, new Size((int)(size / 2), -(int)(Math.Sin(Math.PI / 6) * (size / (2 * Math.Sin(Math.PI / 3))))));
-                    points[2] = Point.Add(Center, new Size((int)(size / 2), (int)(Math.Sin(Math.PI / 6) * (size / (2 * Math.Sin(Math.PI / 3))))));
-
-
-                    gr.DrawPolygon(new Pen(br), points);
-                }
-            }
-            FractusRecursion.SierpinskiTriangle(Center, (int)StepOfRecursion.Value - 1, size / 2, bm);
+                LevelRecursion = (int)StepOfRecursion.Value - 1,
+                bm = bmp,
+                StartPoint = Center,
+                Size = (int)(500 * zoom)
+            };
+            sr.Paint();
             pictureBox1.BackColor = Color.Black;
-            pictureBox1.Image = bm;
-            pictureBox1.Size = bm.Size;
+            pictureBox1.Image = sr.bm;
+            pictureBox1.Size = sr.bm.Size;
         }
         public void DrawCantorSet()
         {
-            double distance = (double)numericUpDown1.Value;
             double zoom = trackBar2.Value;
-            double size = 1000 * zoom;
-            Bitmap bm = new Bitmap(panel1.Size.Width * (int)zoom, panel1.Size.Height * (int)zoom);
-            Point Center = new Point(bm.Size.Width / 2, bm.Size.Height / 2);
-            FractusRecursion.CantorSetRecursion(Center, (int)distance, size, bm, (int)StepOfRecursion.Value);
+            Bitmap bmp = new Bitmap(panel1.Size.Width * (int)zoom, panel1.Size.Height * (int)zoom);
+            Point Center = new Point(bmp.Size.Width / 2, bmp.Size.Height / 2);
+            CantorSetR cr = new CantorSetR()
+            {
+                LevelRecursion = (int)StepOfRecursion.Value,
+                bm = bmp,
+                StartPoint = Center,
+                Size = 1000 * (int)zoom,
+                Distance = (int)numericUpDown1.Value
+            };
+            cr.Paint();
             pictureBox1.BackColor = Color.Black;
-            pictureBox1.Image = bm;
-            pictureBox1.Size = bm.Size;
+            pictureBox1.Image = cr.bm;
+            pictureBox1.Size = cr.bm.Size;
         }
 
         private void StepOfRecursion_ValueChanged(object sender, EventArgs e)
@@ -237,6 +253,7 @@ namespace Fractus
             label4.Text = "Zoom" + "X" + trackBar2.Value.ToString();
             label4.Refresh();
             DrawFractus();
+            panel1.AutoScrollPosition = new Point(pictureBox1.Size.Width / 2, pictureBox1.Size.Height / 2);
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -316,6 +333,16 @@ namespace Fractus
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             DrawFractus();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image.Save(dialog.FileName, ImageFormat.Jpeg);
+
+            }
         }
     }
 }

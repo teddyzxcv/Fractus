@@ -1,6 +1,6 @@
 ﻿namespace Fractus
 {
-    partial class Form1
+    public partial class Form1
     {
         /// <summary>
         ///  Required designer variable.
@@ -56,6 +56,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
             this.ChooseFractus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StepOfRecursion)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -133,6 +134,7 @@
             // PythagorasTree
             // 
             this.PythagorasTree.AutoSize = true;
+            this.PythagorasTree.Checked = true;
             this.PythagorasTree.Location = new System.Drawing.Point(16, 39);
             this.PythagorasTree.Name = "PythagorasTree";
             this.PythagorasTree.Size = new System.Drawing.Size(226, 35);
@@ -237,11 +239,12 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(308, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(730, 990);
+            this.panel1.Size = new System.Drawing.Size(678, 950);
             this.panel1.TabIndex = 12;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.pictureBox1.Location = new System.Drawing.Point(1, 1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 100);
@@ -286,17 +289,17 @@
             this.trackBar4.Name = "trackBar4";
             this.trackBar4.Size = new System.Drawing.Size(208, 90);
             this.trackBar4.TabIndex = 16;
-            this.trackBar4.Value = 125;
+            this.trackBar4.Value = 155;
             this.trackBar4.Scroll += new System.EventHandler(this.trackBar4_Scroll);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(236, 916);
+            this.label6.Location = new System.Drawing.Point(229, 916);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 31);
+            this.label6.Size = new System.Drawing.Size(86, 31);
             this.label6.TabIndex = 18;
-            this.label6.Text = "1/1.5";
+            this.label6.Text = "1/1.55";
             // 
             // label7
             // 
@@ -343,6 +346,7 @@
             this.label10.Size = new System.Drawing.Size(278, 31);
             this.label10.TabIndex = 24;
             this.label10.Text = "Distance between lines";
+            this.label10.Visible = false;
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // numericUpDown1
@@ -356,12 +360,24 @@
             0,
             0,
             0});
+            this.numericUpDown1.Visible = false;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(213, 628);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(77, 46);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1050, 1014);
+            this.ClientSize = new System.Drawing.Size(998, 974);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -401,34 +417,35 @@
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox ChooseFractus;
-        private System.Windows.Forms.RadioButton SierpinskiTriangle;
-        private System.Windows.Forms.RadioButton SierpinskiCarpet;
-        private System.Windows.Forms.RadioButton KochSnowflake;
-        private System.Windows.Forms.RadioButton PythagorasTree;
-        private System.Windows.Forms.RadioButton CantorSet;
-        private System.Windows.Forms.NumericUpDown StepOfRecursion;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button endColor;
-        private System.Windows.Forms.Button startColor;
-        private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TrackBar trackBar2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TrackBar trackBar3;
-        private System.Windows.Forms.TrackBar trackBar4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        public System.Windows.Forms.GroupBox ChooseFractus;
+        public System.Windows.Forms.RadioButton SierpinskiTriangle;
+        public System.Windows.Forms.RadioButton SierpinskiCarpet;
+        public System.Windows.Forms.RadioButton KochSnowflake;
+        public System.Windows.Forms.RadioButton PythagorasTree;
+        public System.Windows.Forms.RadioButton CantorSet;
+        public System.Windows.Forms.NumericUpDown StepOfRecursion;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ColorDialog colorDialog1;
+        public System.Windows.Forms.GroupBox groupBox2;
+        public System.Windows.Forms.Button endColor;
+        public System.Windows.Forms.Button startColor;
+        public System.Windows.Forms.TrackBar trackBar1;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.TrackBar trackBar2;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.TrackBar trackBar3;
+        public System.Windows.Forms.TrackBar trackBar4;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.NumericUpDown numericUpDown1;
+        public System.Windows.Forms.Button button1;
     }
 }
 
