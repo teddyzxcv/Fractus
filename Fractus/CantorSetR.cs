@@ -22,7 +22,7 @@ namespace Fractus
 
                 using (Graphics gr = Graphics.FromImage(bm))
                 {
-                    using (Brush br = new SolidBrush(ColorList[LevelRecursion]))
+                    using (Brush br = new SolidBrush(ColorList[LevelRecursion - 1]))
                     {
                         gr.DrawLine(new Pen(br), Point.Add(CurrentPoint, new Size((int)(size / 2), 0)), Point.Subtract(CurrentPoint, new Size((int)(size / 2), 0)));
                     }

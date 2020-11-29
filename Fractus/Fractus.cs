@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-
 namespace Fractus
 {
     public class Fractus
@@ -23,11 +13,11 @@ namespace Fractus
                 ColorList.Add(endColor);
                 return ColorList;
             }
-            for (int i = 0; i <= LevelRecursion; i++)
+            for (int i = 0; i < LevelRecursion; i++)
             {
-                var rAdverage = startColor.R + (int)((endColor.R - startColor.R) * i / (LevelRecursion + 1));
-                var gAdverage = startColor.G + (int)((endColor.G - startColor.G) * i / (LevelRecursion + 1));
-                var bAdverage = startColor.B + (int)((endColor.B - startColor.B) * i / (LevelRecursion + 1));
+                var rAdverage = startColor.R + (int)((endColor.R - startColor.R) * i / (LevelRecursion));
+                var gAdverage = startColor.G + (int)((endColor.G - startColor.G) * i / (LevelRecursion));
+                var bAdverage = startColor.B + (int)((endColor.B - startColor.B) * i / (LevelRecursion));
 
                 ColorList.Add(Color.FromArgb(255, rAdverage, gAdverage, bAdverage));
             }

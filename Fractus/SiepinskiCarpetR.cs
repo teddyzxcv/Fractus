@@ -8,11 +8,12 @@ namespace Fractus
 {
     class SiepinskiCarpetR : Fractus
     {
+
         public void Paint()
         {
             using (Graphics gr = Graphics.FromImage(bm))
             {
-                using (Brush br = new SolidBrush(ColorList[0]))
+                using (Brush br = new SolidBrush(ColorList.Last()))
                 {
                     Rectangle rec = new Rectangle(StartPoint, new Size(Size, Size));
                     gr.FillRectangle(br, rec);
@@ -26,13 +27,13 @@ namespace Fractus
             {
                 return;
             }
-            if (LevelRecursion >= 0)
+            if (LevelRecursion > 0)
             {
 
                 using (Graphics gr = Graphics.FromImage(bm))
                 {
 
-                    using (SolidBrush br = new SolidBrush(ColorList[LevelRecursion + 1]))
+                    using (SolidBrush br = new SolidBrush(ColorList[ColorList.Count - 1 - LevelRecursion]))
                     {
                         Rectangle rec = new Rectangle(Point.Add(CurrentPoint, new Size(size / 3, size / 3)), new Size(size / 3, size / 3));
                         gr.FillRectangle(br, rec);

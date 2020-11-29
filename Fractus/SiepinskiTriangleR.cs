@@ -38,12 +38,12 @@ namespace Fractus
             {
                 return;
             }
-            if (LevelRecursion >= 0)
+            if (LevelRecursion > 0)
             {
 
                 using (Graphics gr = Graphics.FromImage(bm))
                 {
-                    using (Brush br = new SolidBrush(ColorList[LevelRecursion + 1]))
+                    using (Brush br = new SolidBrush(ColorList[LevelRecursion]))
                     {
                         Point[] points = new Point[3];
                         points[0] = Point.Add(CurrrentPoint, new Size(0, (int)(size / (2 * Math.Sin(Math.PI / 3)))));
