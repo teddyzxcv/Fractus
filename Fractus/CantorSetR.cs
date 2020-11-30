@@ -24,7 +24,7 @@ namespace Fractus
                 {
                     using (Brush br = new SolidBrush(ColorList[LevelRecursion - 1]))
                     {
-                        gr.DrawLine(new Pen(br), Point.Add(CurrentPoint, new Size((int)(size / 2), 0)), Point.Subtract(CurrentPoint, new Size((int)(size / 2), 0)));
+                        gr.DrawLine(new Pen(br, PenSize), Point.Add(CurrentPoint, new Size((int)(size / 2), 0)), Point.Subtract(CurrentPoint, new Size((int)(size / 2), 0)));
                     }
                 }
                 CantorSetRecursion(Point.Add(CurrentPoint, new Size((int)(size / 3), Distance)), Distance, size / 3, bm, LevelRecursion - 1);

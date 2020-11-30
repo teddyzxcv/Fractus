@@ -26,7 +26,7 @@ namespace Fractus
                     points[2] = Point.Add(StartPoint, new Size((int)(Size / 2), (int)(Math.Sin(Math.PI / 6) * (Size / (2 * Math.Sin(Math.PI / 3))))));
 
 
-                    gr.DrawPolygon(new Pen(br), points);
+                    gr.DrawPolygon(new Pen(br, PenSize), points);
                 }
             }
             SierpinskiTriangle(StartPoint, LevelRecursion, Size / 2, bm);
@@ -49,7 +49,7 @@ namespace Fractus
                         points[0] = Point.Add(CurrrentPoint, new Size(0, (int)(size / (2 * Math.Sin(Math.PI / 3)))));
                         points[1] = Point.Add(CurrrentPoint, new Size((int)(size / 2), -(int)(Math.Sin(Math.PI / 6) * (size / (2 * Math.Sin(Math.PI / 3))))));
                         points[2] = Point.Subtract(CurrrentPoint, new Size((int)(size / 2), (int)(Math.Sin(Math.PI / 6) * (size / (2 * Math.Sin(Math.PI / 3))))));
-                        gr.DrawPolygon(new Pen(br), points);
+                        gr.DrawPolygon(new Pen(br, PenSize), points);
                     }
                 }
                 double DisToP = (2 * size * Math.Sin(Math.PI / 3)) / 3;

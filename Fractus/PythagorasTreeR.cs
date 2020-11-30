@@ -30,7 +30,7 @@ namespace Fractus
 
                 using (Graphics gr = Graphics.FromImage(bm))
                 {
-                    using (Pen thick_pen = new Pen(ColorList[LevelRecursion - 1], 1))
+                    using (Pen thick_pen = new Pen(ColorList[LevelRecursion - 1], PenSize))
                     {
                         gr.DrawLine(thick_pen, startPoint, afterPoint);
                     }

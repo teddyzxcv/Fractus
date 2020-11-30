@@ -27,5 +27,7 @@ namespace Fractus
         public int LevelRecursion { get; set; }
         public Bitmap bm { get; set; }
         public Point StartPoint { get; set; }
+
+        public static int PenSize = 1;
     }
 }

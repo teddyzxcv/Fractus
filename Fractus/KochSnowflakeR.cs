@@ -28,7 +28,7 @@ namespace Fractus
                 }
                 using (Graphics gr = Graphics.FromImage(bm))
                 {
-                    using (Pen thick_pen = new Pen(startColor, 1))
+                    using (Pen thick_pen = new Pen(startColor, PenSize))
                     {
                         afterPoint.Y = (float)(startPoint.Y + Math.Round((Math.Sin(Angle * (Math.PI / 180)) * Distance)));
                         afterPoint.X = (float)(startPoint.X + Math.Round((Math.Cos(Angle * (Math.PI / 180)) * Distance)));

@@ -38,6 +38,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.endColor = new System.Windows.Forms.Button();
             this.startColor = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
@@ -60,6 +62,7 @@
             this.ChooseFractus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StepOfRecursion)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -169,19 +172,56 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.numericUpDown2);
             this.groupBox2.Controls.Add(this.endColor);
             this.groupBox2.Controls.Add(this.startColor);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.Location = new System.Drawing.Point(12, 303);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(278, 200);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Choose start and end color";
+            this.groupBox2.Text = "Choose pen width, start and end color";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft YaHei UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(14, 93);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(104, 25);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Pen width";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(32, 130);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(68, 35);
+            this.numericUpDown2.TabIndex = 5;
+            this.numericUpDown2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
             // endColor
             // 
             this.endColor.BackColor = System.Drawing.Color.Red;
-            this.endColor.Location = new System.Drawing.Point(124, 122);
+            this.endColor.Location = new System.Drawing.Point(124, 130);
             this.endColor.Name = "endColor";
             this.endColor.Size = new System.Drawing.Size(148, 46);
             this.endColor.TabIndex = 2;
@@ -192,7 +232,7 @@
             // startColor
             // 
             this.startColor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.startColor.Location = new System.Drawing.Point(124, 57);
+            this.startColor.Location = new System.Drawing.Point(124, 70);
             this.startColor.Name = "startColor";
             this.startColor.Size = new System.Drawing.Size(148, 46);
             this.startColor.TabIndex = 1;
@@ -215,9 +255,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(248, 752);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 31);
+            this.label2.Size = new System.Drawing.Size(52, 31);
             this.label2.TabIndex = 10;
-            this.label2.Text = "0°";
+            this.label2.Text = "30°";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
@@ -306,9 +346,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(246, 830);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 31);
+            this.label7.Size = new System.Drawing.Size(52, 31);
             this.label7.TabIndex = 19;
-            this.label7.Text = "0°";
+            this.label7.Text = "30°";
             // 
             // label8
             // 
@@ -404,6 +444,8 @@
             this.ChooseFractus.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StepOfRecursion)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -446,6 +488,8 @@
         public System.Windows.Forms.Label label10;
         public System.Windows.Forms.NumericUpDown numericUpDown1;
         public System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
     }
 }
 
