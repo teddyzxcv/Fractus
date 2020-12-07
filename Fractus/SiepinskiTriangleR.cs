@@ -12,6 +12,10 @@ namespace Fractus
 {
     class SiepinskiTriangleR : Fractus
     {
+        /// <summary>
+        /// Standard paint method for every fractal.
+        /// Draw the initial position of fractal.
+        /// </summary>
         public void Paint()
         {
 
@@ -32,6 +36,13 @@ namespace Fractus
             SierpinskiTriangle(StartPoint, LevelRecursion, Size / 2, bm);
 
         }
+        /// <summary>
+        /// Draw recursion use given parameter.
+        /// </summary>
+        /// <param name="CurrrentPoint"></param>
+        /// <param name="LevelRecursion"></param>
+        /// <param name="size"></param>
+        /// <param name="bm"></param>
         public void SierpinskiTriangle(Point CurrrentPoint, int LevelRecursion, double size, Bitmap bm)
         {
             if (LevelRecursion == -1)

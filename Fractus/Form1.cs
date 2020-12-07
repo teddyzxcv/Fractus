@@ -22,7 +22,7 @@ namespace Fractus
         {
 
             InitializeComponent();
-            
+            // Bound the window size.
             Size ScreenSize = Screen.PrimaryScreen.Bounds.Size;
             this.MaximumSize = ScreenSize;
             ScreenSize.Width /= 2;
@@ -33,7 +33,11 @@ namespace Fractus
         }
 
 
-
+        /// <summary>
+        /// Choose color for end color.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
@@ -43,7 +47,11 @@ namespace Fractus
                 DrawFractus();
             }
         }
-
+        /// <summary>
+        /// Choose color for start color.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
@@ -53,7 +61,11 @@ namespace Fractus
                 DrawFractus();
             }
         }
-
+        /// <summary>
+        /// Change the visibility of component when pythagoras tree is checked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PythagorasTree_CheckedChanged(object sender, EventArgs e)
         {
             //pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -99,7 +111,11 @@ namespace Fractus
             Refresh();
 
         }
-
+        /// <summary>
+        /// Show the angle.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
 
@@ -108,7 +124,9 @@ namespace Fractus
             DrawPythagorasTree();
 
         }
-
+        /// <summary>
+        /// Draw fractal at once.
+        /// </summary>
         private void DrawFractus()
         {
             Fractus.GenerateColorList(endColor.BackColor, startColor.BackColor, (int)StepOfRecursion.Value);
@@ -138,6 +156,9 @@ namespace Fractus
             }
 
         }
+        /// <summary>
+        /// Initiate the pythagoras tree and draw it.
+        /// </summary>
         public void DrawPythagorasTree()
         {
             double zoom = trackBar2.Value;
@@ -157,6 +178,9 @@ namespace Fractus
             pictureBox1.Image = pt.bm;
             pictureBox1.Size = pt.bm.Size;
         }
+        /// <summary>
+        /// Initiate the Koch snow flake and draw it.
+        /// </summary>
         public void DrawKochSnowflake()
         {
             double zoom = trackBar2.Value;
@@ -173,6 +197,9 @@ namespace Fractus
             pictureBox1.Image = kf.bm;
             pictureBox1.Size = kf.bm.Size;
         }
+        /// <summary>
+        /// Initiate the Siepinski carpet and draw it.
+        /// </summary>
         public void DrawSierpinskiCarpet()
         {
             double zoom = trackBar2.Value;
@@ -191,6 +218,9 @@ namespace Fractus
             pictureBox1.Image = siecar.bm;
             pictureBox1.Size = siecar.bm.Size;
         }
+        /// <summary>
+        /// Initiate the Sierpinski triangle and draw it.
+        /// </summary>
         public void DrawSierpinskiTriangle()
         {
 
@@ -210,6 +240,9 @@ namespace Fractus
             pictureBox1.Image = sr.bm;
             pictureBox1.Size = sr.bm.Size;
         }
+        /// <summary>
+        /// Initiate the Cantor Set and draw it.
+        /// </summary>
         public void DrawCantorSet()
         {
             double zoom = trackBar2.Value;
@@ -228,7 +261,11 @@ namespace Fractus
             pictureBox1.Image = cr.bm;
             pictureBox1.Size = cr.bm.Size;
         }
-
+        /// <summary>
+        /// Bound the recurstion step for Koch snow.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StepOfRecursion_ValueChanged(object sender, EventArgs e)
         {
             if ((KochSnowflake.Checked && (StepOfRecursion.Value <= 5 || trackBar2.Value > 3)) || !KochSnowflake.Checked)
@@ -237,16 +274,11 @@ namespace Fractus
                 StepOfRecursion.Value = 5;
 
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
+        /// <summary>
+        /// Change the zoom element.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
@@ -255,10 +287,11 @@ namespace Fractus
             DrawFractus();
             panel1.AutoScrollPosition = new Point(pictureBox1.Size.Width / 2, pictureBox1.Size.Height / 2);
         }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-        }
+        /// <summary>
+        /// Change the angle value.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void trackBar3_Scroll(object sender, EventArgs e)
         {
@@ -266,6 +299,11 @@ namespace Fractus
             label7.Refresh();
             DrawFractus();
         }
+        /// <summary>
+        /// Show the lenth fraction of Pythagoras tree.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void trackBar4_Scroll(object sender, EventArgs e)
         {
@@ -273,6 +311,11 @@ namespace Fractus
             label6.Refresh();
             DrawFractus();
         }
+        /// <summary>
+        /// Refresh the window when change the window size.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
@@ -282,6 +325,11 @@ namespace Fractus
             DrawFractus();
         }
 
+        /// <summary>
+        /// Refresh when Koch snow flake is checked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void KochSnowflake_CheckedChanged(object sender, EventArgs e)
         {
             trackBar2.Value = 1;
@@ -289,7 +337,11 @@ namespace Fractus
             StepOfRecursion.Value = 0;
             DrawFractus();
         }
-
+        /// <summary>
+        /// Refresh when Sierpinski carpet is checked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SierpinskiCarpet_CheckedChanged(object sender, EventArgs e)
         {
             trackBar2.Value = 1;
@@ -297,6 +349,11 @@ namespace Fractus
             StepOfRecursion.Value = 0;
             DrawFractus();
         }
+        /// <summary>
+        /// Refresh when Sierpinski triangle is checked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void SierpinskiTriangle_CheckedChanged(object sender, EventArgs e)
         {
@@ -305,6 +362,11 @@ namespace Fractus
             StepOfRecursion.Value = 0;
             DrawFractus();
         }
+        /// <summary>
+        /// Show component and refresh when Cantor set is checked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void CantorSet_CheckedChanged(object sender, EventArgs e)
         {
@@ -324,36 +386,41 @@ namespace Fractus
             DrawFractus();
 
         }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
+        /// <summary>
+        /// Refresh when step of recursion is changed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             DrawFractus();
         }
-
+        /// <summary>
+        /// Save the image dialog.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             SaveFileDialog dialog = new SaveFileDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                pictureBox1.Image.Save(dialog.FileName, ImageFormat.Jpeg);
+                pictureBox1.Image.Save(dialog.FileName + ". jpg", ImageFormat.Jpeg);
 
             }
         }
 
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
+        /// <summary>
+        /// Change the pen size and refresh the window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
             Fractus.PenSize = (int)numericUpDown2.Value;
-            DrawFractus();  
+            DrawFractus();
         }
     }
 }

@@ -10,11 +10,24 @@ namespace Fractus
     {
 
 
-
+        /// <summary>
+        /// Standard paint method for every fractal.
+        /// </summary>
         public void Paint()
         {
             KochSnowflakwRecursion(ColorList[0], LevelRecursion, StartPoint, out PointF apoint, Size, 180, LevelRecursion, bm);
         }
+        /// <summary>
+        /// Rescursion for draw the fractal use these parameter.
+        /// </summary>
+        /// <param name="startColor"></param>
+        /// <param name="LevelRecursion"></param>
+        /// <param name="startPoint"></param>
+        /// <param name="afterPoint"></param>
+        /// <param name="Distance"></param>
+        /// <param name="Angle"></param>
+        /// <param name="RecursionColor"></param>
+        /// <param name="bm"></param>
         public void KochSnowflakwRecursion(Color startColor, int LevelRecursion, PointF startPoint, out PointF afterPoint, double Distance, int Angle, int RecursionColor, Bitmap bm)
         {
             afterPoint = new PointF();

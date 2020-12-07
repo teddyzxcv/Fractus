@@ -8,6 +8,10 @@ namespace Fractus
 {
     class SiepinskiCarpetR : Fractus
     {
+        /// <summary>
+        /// Standard paint method for every fractal.
+        /// Draw the first fractal(initial position)
+        /// </summary>
 
         public void Paint()
         {
@@ -21,6 +25,13 @@ namespace Fractus
             }
             SierpinskiCarpetRecursion(StartPoint, LevelRecursion - 1, Size, bm);
         }
+        /// <summary>
+        /// Draw the recursion use given parameter.
+        /// </summary>
+        /// <param name="CurrentPoint"></param>
+        /// <param name="LevelRecursion"></param>
+        /// <param name="size"></param>
+        /// <param name="bm"></param>
         public void SierpinskiCarpetRecursion(Point CurrentPoint, int LevelRecursion, int size, Bitmap bm)
         {
             if (LevelRecursion == -1)

@@ -10,14 +10,23 @@ namespace Fractus
         public int PythagorasAngle1
         { get; set; }
         public int PythagorasAngle2 { get; set; }
-
+        /// <summary>
+        /// Standard paint method for every fractal.
+        /// </summary>
         public void Paint()
         {
             PythagorasTreeRecursion(StartPoint, LevelRecursion, bm, 0, Size);
         }
 
 
-
+        /// <summary>
+        /// Draw the recursion use these given parameter.
+        /// </summary>
+        /// <param name="startPoint"></param>
+        /// <param name="LevelRecursion"></param>
+        /// <param name="bm"></param>
+        /// <param name="Angle"></param>
+        /// <param name="Distance"></param>
         public void PythagorasTreeRecursion(Point startPoint, int LevelRecursion, Bitmap bm, int Angle, double Distance)
         {
             if (LevelRecursion > 0)

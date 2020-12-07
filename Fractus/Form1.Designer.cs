@@ -193,7 +193,6 @@
             this.label11.Size = new System.Drawing.Size(104, 25);
             this.label11.TabIndex = 6;
             this.label11.Text = "Pen width";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // numericUpDown2
             // 
@@ -258,7 +257,6 @@
             this.label2.Size = new System.Drawing.Size(52, 31);
             this.label2.TabIndex = 10;
             this.label2.Text = "30°";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -272,8 +270,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.pictureBox1);
@@ -309,7 +307,6 @@
             this.label4.Size = new System.Drawing.Size(117, 31);
             this.label4.TabIndex = 14;
             this.label4.Text = "Zoom X1";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // trackBar3
             // 
@@ -387,7 +384,6 @@
             this.label10.TabIndex = 24;
             this.label10.Text = "Distance between lines";
             this.label10.Visible = false;
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // numericUpDown1
             // 
